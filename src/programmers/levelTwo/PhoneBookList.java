@@ -10,13 +10,13 @@ public class PhoneBookList {
 
     public boolean solution(String[] phone_book) {
         boolean answer = true;
-        Arrays.sort(phone_book);
+        Arrays.sort(phone_book); // 문자열로 sorting
 
         for(int i=0; i<phone_book.length-1; i++){
 
             for(int j=i+1; j<phone_book.length; j++){
 
-                if(phone_book[i].charAt(0) != phone_book[j].charAt(0)){
+                if(phone_book[i].charAt(0) != phone_book[j].charAt(0)){ // 앞자리가 틀리면 break;
                     break;
                 }
 
