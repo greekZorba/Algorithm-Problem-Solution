@@ -1,46 +1,35 @@
 package hackerRank;
 
+/**
+ *
+ * 배열의 맨 끝자리 인덱스부터 앞의 인덱스로만 swap 해줄 수 있다.
+ * 그것도 최대 2번까지만 swap 가능
+ * */
 public class NewYearChaos {
 
     static void minimumBribes(int[] q) {
 
-        // 2칸을 초과해서 넘을 순 없다.
-        for(int i=0; i<q.length; i++) {
+        int output = 0;
+        for(int i=q.length-1; i>=0; i--) {
+
+            // 뒤에서 오는 큰 수들이 2칸을 초과해서 넘을 순 없다.
             if(q[i] - (i+1) > 2 ){
                 System.out.println("Too chaotic");
                 return;
             }
-        }
 
-        int output = 0;
-        for(int i=0; i<q.length; i++) {
+            // 2칸 밖에 이동하지 못하기 때문에 2칸 전부터 큰 숫자가 있는지 확인한 뒤 swap할 횟수를 더해주면 됨
+            // swap할 횟수만 구하면 되기 때문에 실제로 swap할 필요는 없다.
+            for(int j = Math.max(0, q[i]-2); j < i; j++) {
 
-            for(int j=i; j<q.length-1; j++) {
-
-                if(q[j] > q[j+1]){
-                    swap(q, j, j+1);
+                if(q[j] > q[i]) {
                     output++;
-
-                    for(int out: q){
-                        System.out.print(" "+out);
-
-                    }
-                    System.out.println();
                 }
-
-
-
             }
         }
 
         System.out.println(output);
 
-    }
-
-    private static void swap(int[] input, int i, int j){
-        int temp = input[i];
-        input[i] = input[j];
-        input[j] = temp;
     }
 
     public static void main(String[] args) {
