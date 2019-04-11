@@ -18,6 +18,7 @@ public class ComparatorProblem implements Comparator<Player> {
             return -1;
 
         }else if(a.score() == b.score()){
+            // compareToIgnoreCase는 대소문자를 분간하지 않고 문자열 비교
             return a.name().compareToIgnoreCase(b.name());
         }
 
