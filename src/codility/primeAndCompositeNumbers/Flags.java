@@ -44,7 +44,7 @@ public class Flags {
                 }
 
                 // peak가 2개일 경우로 인해 '==' -> '>='로 변경
-                // flags는 peak의 사이즈가 최대라서 flagCount가 flags를 넘어갈 일이 있으면 안됨 
+                // flags는 peak의 사이즈가 최대라서 flagCount가 flags를 넘어갈 일이 있으면 안됨
                 if (flags >= flagCount) {
                     foundFlags = true;
                     maxFlags = flagCount;
